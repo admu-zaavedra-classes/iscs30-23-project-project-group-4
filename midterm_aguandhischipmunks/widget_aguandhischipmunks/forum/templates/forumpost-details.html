@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+{% block title %}
+{{ object.title }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ object.title }}</h1>
+        <body>
+            by {{ object.author.first_name }} {{ object.author.last_name }}<br>
+            {{ object.pub_datetime|date:"m/d/Y, h:i A" }}<br>
+            {{ object.body }}<br><br>
+           
+            POST REPLIES: <br>
+            {% for reply in replies %}
+            {% if reply.forum_post == object %}
+                by {{ reply.author.first_name }} {{ reply.author.last_name }}<br>
+                {{ reply.pub_datetime|date:"m/d/Y, h:i A" }}<br>
+                {{ reply.body }}<br><br>
+            {% endif %}
+            {% endfor %}
+        </body>
+        <form action="./edit">
+            <button type="submit">Edit Post</button>
+        </form>
+        
+{% endblock %}
+

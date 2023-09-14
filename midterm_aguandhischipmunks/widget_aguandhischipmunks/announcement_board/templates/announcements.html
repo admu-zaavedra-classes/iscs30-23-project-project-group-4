@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+{% block title %}
+    Widget's Announcement Board
+{% endblock %}
+
+{% block content %}
+    <h1>Welcome to Widget's Announcement Board!</h1><br>
+    Announcements:
+    {% if announcements %}
+        <ul>
+            {% for announcement in announcements %}
+                <a href={{announcement.id}}/details>{{announcement.title}} by 
+                    {{announcement.author.first_name}} {{announcement.author.last_name}}</a><br>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Available Announcements.</p>
+    {% endif %}
+    <ul>
+        <li><button type="button" onclick="window.location.href='/announcements/add'">New Announcement</button></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/forum">Forum</a></li>
+        <li><a href="/assignments/">Assignments</a></li>
+        <li><a href="/calendar">Calendar</a></li>
+    </ul>
+    
+{% endblock %}

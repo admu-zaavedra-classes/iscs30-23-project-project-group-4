@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Add Widget User {% endblock %}
+{% block content %}
+
+<h1>Add a new Widger user:</h1>
+
+<form method="POST">
+{% csrf_token %}
+{{form.as_p}} 
+<button type="submit">Add Widget User</button> 
+</form>
+{% endblock %}
+
+

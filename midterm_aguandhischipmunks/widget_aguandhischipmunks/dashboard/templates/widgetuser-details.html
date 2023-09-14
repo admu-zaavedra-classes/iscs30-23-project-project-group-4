@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{ object.last_name }}, {{ object.first_name }} {% endblock %}
+
+{% block content %}
+
+<h1>{{ object.last_name }} {{ object.middle_name }} {{ object.first_name }}</h1>
+<h2>{{ object.department.dept_name }}</h2>
+<h3>{{ object.department.home_unit }}</h3>
+
+<form action="./edit">
+    <button type="submit">Edit Widget User</button>
+</form>
+
+{% endblock %}

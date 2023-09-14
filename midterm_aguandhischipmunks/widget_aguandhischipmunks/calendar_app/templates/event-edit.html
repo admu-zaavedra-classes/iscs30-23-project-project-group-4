@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}
+    Edit Activity
+{% endblock %}
+
+{% block content %}
+<p>Edit Activity:</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save New Activity</button>
+  </form>
+{% endblock %}

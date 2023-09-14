@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% block title %}
+    Add Announcement
+{% endblock %}
+
+{% block content %}
+    <h2>Add a new announcement:</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save New Announcement</button>
+    </form>
+
+{% endblock %}

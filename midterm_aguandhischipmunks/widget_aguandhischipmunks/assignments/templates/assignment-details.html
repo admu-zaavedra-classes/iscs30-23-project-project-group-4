@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+{% block title %}
+{% if assignment %}
+{{assignment.title}}
+{% else %}
+    <p>No Available assignment.</p>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if assignment %}
+    <h1>{{assignment.name}}</h1>
+        <ul>
+            <h2>{{assignment.course.code}} {{assignment.course.title}} - {{assignment.course.section}} </h2>
+            <br>
+            <p>Description: {{assignment.description}}</p><br>
+            <p>Perfect Score: {{assignment.perfect_score}}</p><br>
+            <p>Passing Score: {{assignment.passing_score}}</p><br>
+           
+        </ul>
+    {% else %}
+        <p>No Available Books.</p>
+    {% endif %}
+    <ul>
+    <li ><button type="button" onclick="window.location.href='/assignments/{{assignment.pk}}/edit'">Edit Assignments</button></li>
+</ul>
+{% endblock %}

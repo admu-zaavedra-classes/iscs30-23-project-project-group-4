@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+{% block title %}
+    {{ object.title }}
+{% endblock %}
+
+{% block content %}
+    <h2>{{ object.title }}</h2>
+    by {{ object.author.first_name }} {{ object.author.last_name}}<br>
+    {{ object.pub_datetime|date:"m/d/Y" }} {{ object.pub_datetime|time:"H:i A" }}<br><br>
+
+    {{ object.body }}<br><br>
+
+    {% for reaction in reactions %}
+        {% if reaction.announcement.title == object.title %}
+            {{ reaction.name}}: {{ reaction.tally }}<br>
+        {% endif %}
+    {% endfor %}
+
+    <button type="button" onclick="window.location.href='/announcements/{{announcement.pk}}/edit'">Edit Announcement</button>
+{% endblock %}

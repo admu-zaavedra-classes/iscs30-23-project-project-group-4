@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Widget's Calendar of Activities{% endblock %}
+{% block content %}
+
+    {% block header %}<h1>Widget's Calendar of Activities</h1>{% endblock %}
+
+    {% for event in events %}
+        <a href="{{event.get_absolute_url}}"> {{event.activity}} </a><br>
+    {% endfor %}
+    <br>
+
+    <form action="events/add">
+        <button type="submit">New Activity</button> 
+    </form>
+    <br>
+
+    <a href="/dashboard">Dashboard</a><br>
+    <a href="/announcements">Announcements</a><br>
+    <a href="/forum">Forum</a><br>
+    <a href="/assignments">Assignments</a><br>
+    
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Widget's Forum {% endblock %}
+{% block content %}
+
+<h1>Welcome to Widget's Forum!</h1>
+
+<body>
+Forum posts:
+{% for post in forumposts %}
+    <li>
+        <a href="{{ post.get_absolute_url }}">
+                {{ post.title }} by {{ post.author.last_name }}, {{ post.author.first_name }}
+        </a>
+    </li>
+{% endfor %}
+</body> <br>
+
+<form action="forumposts/add">
+    <button type="submit">New Post</button> 
+</form> <br>
+
+<li><a href="/dashboard">Dashboard</a> <br></li>
+<li><a href="/announcements">Announcements</a> <br></li>
+<li><a href="/assignments">Assignments</a> <br></li>
+<li><a href="/calendar">Calendar</a> <br></li>
+
+{% endblock %}
+
+

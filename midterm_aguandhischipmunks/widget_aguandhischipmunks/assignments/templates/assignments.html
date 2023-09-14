@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block title %}
+    Widget's Assignments
+{% endblock %}
+
+{% block content %}
+    <h1>Welcome to Widget's Assignments!</h1>
+    {% if assignments %}
+        <ul>
+            {% for assignment in assignments %}
+                <a href={{assignment.id}}/details>{{ assignment.name }}</a><br>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Available Assignments.</p>
+    {% endif %}
+    <ul>
+        <li><button type="button" onclick="window.location.href='/assignments/add'">New Assignments</button></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/announcements">Announcements</a></li>
+        <li><a href="/forum">Forum</a></li>
+        <li><a href="/calendar">Calendar</a></li>
+    </ul>
+    
+    
+{% endblock %}

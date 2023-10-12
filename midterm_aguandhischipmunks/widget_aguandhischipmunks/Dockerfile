@@ -3,7 +3,7 @@ FROM python:3.9-slim
 
 # Set environment variables
 ENV PYTHONUNBUFFERED 1
-ENV DJANGO_SETTINGS_MODULE=iscs30-23-project-project-group-4.settings
+ENV DJANGO_SETTINGS_MODULE=widget_aguandhischipmunks.settings
 
 # Create and set working directory
 WORKDIR /app
@@ -27,4 +27,4 @@ RUN python manage.py collectstatic --noinput
 # Expose the port the app runs on
 EXPOSE 8000
 
-CMD ["gunicorn", "iscs30-23-project-project-group-4.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "widget_aguandhischipmunks.wsgi:application", "--bind", "0.0.0.0:8000"]

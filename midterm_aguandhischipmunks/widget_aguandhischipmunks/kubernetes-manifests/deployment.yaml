@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: django-app
+  template:
+    metadata:
+      labels:
+        app: django-app
+    spec:
+      containers:
+      - name: django-container
+        image: lancedamalerio/widgetapp:latest  # Replace with your Docker image, e.g., gcr.io/project-id/image-name:tag
+        ports:
+        - containerPort: 8000  # Replace with the port your app runs on
+        env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: "widget_aguandhischipmunks.settings"
